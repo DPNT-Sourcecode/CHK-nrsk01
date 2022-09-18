@@ -22,9 +22,10 @@ public class PromotionsService {
 
     public List<Promotion> getPromotionBySKU(String sku) {
         return promotions.stream().filter(promotion -> promotion.getSku().equals(sku))
-                .sorted(Comparator.comparing(Promotion::getQuantity))
+                .sorted(Comparator.comparing(Promotion::getQuantity).reversed())
                 .collect(Collectors.toList());
     }
 }
+
 
 
