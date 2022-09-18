@@ -3,8 +3,10 @@ package befaster.solutions.CHK;
 import befaster.solutions.CHK.model.Promotion;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class PromotionsService {
 
@@ -18,9 +20,11 @@ public class PromotionsService {
 
     }
 
-    public Optional<Promotion> getPromotionBySKU(String sku) {
+    public List<Promotion> getPromotionBySKU(String sku) {
         return promotions.stream().filter(promotion -> promotion.getSku().equals(sku))
-                .findFirst();
+                .sorted(Comparator.comparing(Promotion::getQuantity))
+                .collect(Collectors.toList());
     }
 }
+
 

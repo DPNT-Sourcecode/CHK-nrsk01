@@ -6,6 +6,7 @@ import befaster.solutions.CHK.model.Promotion;
 
 import java.security.InvalidParameterException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.function.Function;
@@ -48,9 +49,8 @@ public class CheckoutSolution {
     private Map<Product, Integer> applyPromos(Map<Product, Integer> basket) {
         Map<Product, Integer> baskteWithPromotions = new HashMap<>(basket);
         for (Product product: basket.keySet()) {
-            Optional<Promotion> promotionOptional = promotionsService.getPromotionBySKU(product.getSku());
-            if (promotionOptional.isPresent()) {
-                Promotion promotion = promotionOptional.get();
+            List<Promotion> promotionOptional = promotionsService.getPromotionBySKU(product.getSku());
+            for (Promotion promotion : promotionOptional) {
                 Integer promotionQuantity = promotion.getQuantity();
                 if (basket.get(product) >= promotionQuantity) {
                     Product promotionProduct = new Product(promotion.getId(), promotion.getUnitPrice());
@@ -62,4 +62,5 @@ public class CheckoutSolution {
         return baskteWithPromotions;
     }
 }
+
 
