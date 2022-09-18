@@ -2,7 +2,7 @@ package befaster.solutions.CHK;
 
 public class Promotion {
 
-    private String id;
+//    private String id;
     private Character sku;
     private Integer quantity;
     private Integer unitPrice;
@@ -11,19 +11,19 @@ public class Promotion {
     }
 
     public Promotion(String id, Character sku, Integer quantity, Integer unitPrice) {
-        this.id = id;
+//        this.id = id;
         this.sku = sku;
         this.quantity = quantity;
         this.unitPrice = unitPrice;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
+//    public String getId() {
+//        return id;
+//    }
+//
+//    public void setId(String id) {
+//        this.id = id;
+//    }
 
     public Character getSku() {
         return sku;
@@ -49,4 +49,5 @@ public class Promotion {
         this.unitPrice = unitPrice;
     }
 }
+
 
