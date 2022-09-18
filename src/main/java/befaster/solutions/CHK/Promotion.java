@@ -2,17 +2,27 @@ package befaster.solutions.CHK;
 
 public class Promotion {
 
+    private String id;
     private Character sku;
     private Integer quantity;
-    private Integer totalValue;
+    private Integer unitPrice;
 
     public Promotion() {
     }
 
-    public Promotion(Character sku, Integer quantity, Integer totalValue) {
+    public Promotion(String id, Character sku, Integer quantity, Integer unitPrice) {
+        this.id = id;
         this.sku = sku;
         this.quantity = quantity;
-        this.totalValue = totalValue;
+        this.unitPrice = unitPrice;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public Character getSku() {
@@ -31,11 +41,12 @@ public class Promotion {
         this.quantity = quantity;
     }
 
-    public Integer getTotalValue() {
-        return totalValue;
+    public Integer getUnitPrice() {
+        return unitPrice;
     }
 
-    public void setTotalValue(Integer totalValue) {
-        this.totalValue = totalValue;
+    public void setUnitPrice(Integer unitPrice) {
+        this.unitPrice = unitPrice;
     }
 }
+

@@ -2,20 +2,24 @@ package befaster.solutions.CHK;
 
 import java.security.InvalidParameterException;
 import java.util.Map;
+import java.util.Optional;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class CheckoutSolution {
 
     private ProductsService productsService;
+    private PromotionsService promotionsService;
 
     public CheckoutSolution() {
         productsService = new ProductsService();
+        promotionsService = new PromotionsService();
     }
 
     public Integer checkout(String skus) {
         try {
             Map<Product, Integer> basket = groupByProduct(skus);
+            applyPromos(basket);
             Integer total = 0;
             for (Product product: basket.keySet()) {
                 total += basket.get(product) * product.getPrice();
@@ -35,4 +39,11 @@ public class CheckoutSolution {
         }
         return groupedProducts;
     }
+
+    private void applyPromos(Map<Product, Integer> basket) {
+//        for (Product product: basket) {
+//
+//        }
+    }
 }
+
