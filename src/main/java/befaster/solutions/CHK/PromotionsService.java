@@ -11,13 +11,12 @@ public class PromotionsService {
 
     public PromotionsService() {
         this.promotions = new ArrayList<>(2);
-        promotions.add(new Promotion("3A", 'A', 3, 130));
-        promotions.add(new Promotion("2B", 'B', 2, 45));
+        promotions.add(new Promotion("3A", "A", 3, 130));
+        promotions.add(new Promotion("2B", "B", 2, 45));
     }
 
-    public Optional<Promotion> getPromotionBySKU(char sku) {
+    public Optional<Promotion> getPromotionBySKU(String sku) {
         return promotions.stream().filter(promotion -> promotion.getSku().equals(sku))
                 .findFirst();
     }
 }
-

@@ -41,9 +41,17 @@ public class CheckoutSolution {
     }
 
     private void applyPromos(Map<Product, Integer> basket) {
-//        for (Product product: basket) {
-//
-//        }
+        for (Product product: basket.keySet()) {
+            Optional<Promotion> promotionOptional = promotionsService.getPromotionBySKU(product.getSku());
+            if (promotionOptional.isPresent()) {
+                Promotion promotion = promotionOptional.get();
+                Integer promotionQuantity = promotion.getQuantity();
+                if (basket.get(product) >= promotionQuantity) {
+                    Product promotionProduct = new Product(promotion.getId(), promotion.getUnitPrice());
+                    basket.put(promotionProduct, basket.get(product) / promotionQuantity);
+                    basket.put(product, basket.get(product) % promotionQuantity);
+                }
+            }
+        }
     }
 }
-

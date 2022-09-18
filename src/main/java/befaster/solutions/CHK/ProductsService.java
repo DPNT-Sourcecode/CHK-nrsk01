@@ -10,14 +10,14 @@ public class ProductsService {
 
     public ProductsService() {
         products = new ArrayList<>(4);
-        products.add(new Product('A', 50));
-        products.add(new Product('B', 30));
-        products.add(new Product('C', 20));
-        products.add(new Product('D', 15));
+        products.add(new Product("A", 50));
+        products.add(new Product("B", 30));
+        products.add(new Product("C", 20));
+        products.add(new Product("D", 15));
     }
 
     public Product getProductBySKU(char sku) {
-        return products.stream().filter(p -> p.getSku().equals(sku))
+        return products.stream().filter(p -> p.getSku().equals(String.valueOf(sku)))
                 .findFirst().orElseThrow(InvalidParameterException::new);
     }
 

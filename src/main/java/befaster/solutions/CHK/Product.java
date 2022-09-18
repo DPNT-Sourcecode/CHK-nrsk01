@@ -2,22 +2,22 @@ package befaster.solutions.CHK;
 
 public class Product {
 
-    private Character sku;
+    private String  sku;
     private Integer price;
 
     public Product() {
     }
 
-    public Product(Character sku, Integer price) {
+    public Product(String  sku, Integer price) {
         this.sku = sku;
         this.price = price;
     }
 
-    public Character getSku() {
+    public String getSku() {
         return sku;
     }
 
-    public void setSku(Character sku) {
+    public void setSku(String  sku) {
         this.sku = sku;
     }
 
