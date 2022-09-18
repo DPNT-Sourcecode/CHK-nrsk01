@@ -49,4 +49,3 @@ public class Promotion {
         this.unitPrice = unitPrice;
     }
 }
-

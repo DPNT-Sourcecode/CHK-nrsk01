@@ -62,5 +62,3 @@ public class CheckoutSolution {
         return baskteWithPromotions;
     }
 }
-
-
