@@ -56,9 +56,11 @@ public class CheckoutSolution {
                     Product promotionProduct = new Product(promotion.getId(), promotion.getUnitPrice());
                     baskteWithPromotions.put(promotionProduct, basket.get(product) / promotionQuantity);
                     baskteWithPromotions.put(product, basket.get(product) % promotionQuantity);
+                    basket.put(product, basket.get(product) % promotionQuantity);
                 }
             }
         }
         return baskteWithPromotions;
     }
 }
+
