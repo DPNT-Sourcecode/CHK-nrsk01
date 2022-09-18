@@ -11,6 +11,7 @@ public class CheckoutTest {
 
     @Test
     public void test() {
-        assertThat(checkoutSolution.checkout("AAA"), equalTo(120));
+        assertThat(checkoutSolution.checkout("ABACAC"), equalTo(200));
     }
 }
+

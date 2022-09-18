@@ -1,6 +1,7 @@
 package befaster.solutions.CHK;
 
 import java.security.InvalidParameterException;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 import java.util.function.Function;
@@ -19,10 +20,10 @@ public class CheckoutSolution {
     public Integer checkout(String skus) {
         try {
             Map<Product, Integer> basket = groupByProduct(skus);
-            applyPromos(basket);
+            Map<Product, Integer> basketWithPromotions = applyPromos(basket);
             Integer total = 0;
-            for (Product product: basket.keySet()) {
-                total += basket.get(product) * product.getPrice();
+            for (Product product: basketWithPromotions.keySet()) {
+                total += basketWithPromotions.get(product) * product.getPrice();
             }
             return total;
         } catch (InvalidParameterException e) {
@@ -40,7 +41,8 @@ public class CheckoutSolution {
         return groupedProducts;
     }
 
-    private void applyPromos(Map<Product, Integer> basket) {
+    private Map<Product, Integer> applyPromos(Map<Product, Integer> basket) {
+        Map<Product, Integer> baskteWithPromotions = new HashMap<>(basket);
         for (Product product: basket.keySet()) {
             Optional<Promotion> promotionOptional = promotionsService.getPromotionBySKU(product.getSku());
             if (promotionOptional.isPresent()) {
@@ -48,10 +50,12 @@ public class CheckoutSolution {
                 Integer promotionQuantity = promotion.getQuantity();
                 if (basket.get(product) >= promotionQuantity) {
                     Product promotionProduct = new Product(promotion.getId(), promotion.getUnitPrice());
-                    basket.put(promotionProduct, basket.get(product) / promotionQuantity);
-                    basket.put(product, basket.get(product) % promotionQuantity);
+                    baskteWithPromotions.put(promotionProduct, basket.get(product) / promotionQuantity);
+                    baskteWithPromotions.put(product, basket.get(product) % promotionQuantity);
                 }
             }
         }
+        return baskteWithPromotions;
     }
 }
+
