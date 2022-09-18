@@ -1,4 +1,4 @@
-package befaster.solutions.CHK;
+package befaster.solutions.CHK.model;
 
 public class Promotion {
 
@@ -49,3 +49,4 @@ public class Promotion {
         this.unitPrice = unitPrice;
     }
 }
+

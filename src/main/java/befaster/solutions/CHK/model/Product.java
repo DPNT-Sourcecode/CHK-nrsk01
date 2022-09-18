@@ -1,4 +1,4 @@
-package befaster.solutions.CHK;
+package befaster.solutions.CHK.model;
 
 public class Product {
 
@@ -29,3 +29,4 @@ public class Product {
         this.price = price;
     }
 }
+

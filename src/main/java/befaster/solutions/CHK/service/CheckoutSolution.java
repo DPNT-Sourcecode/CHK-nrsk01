@@ -1,4 +1,8 @@
-package befaster.solutions.CHK;
+package befaster.solutions.CHK.service;
+
+import befaster.solutions.CHK.PromotionsService;
+import befaster.solutions.CHK.model.Product;
+import befaster.solutions.CHK.model.Promotion;
 
 import java.security.InvalidParameterException;
 import java.util.HashMap;
@@ -58,3 +62,4 @@ public class CheckoutSolution {
         return baskteWithPromotions;
     }
 }
+

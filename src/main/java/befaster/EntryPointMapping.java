@@ -1,7 +1,7 @@
 package befaster;
 
 import befaster.solutions.ARRS.ArraySumSolution;
-import befaster.solutions.CHK.CheckoutSolution;
+import befaster.solutions.CHK.service.CheckoutSolution;
 import befaster.solutions.CHL.CheckliteSolution;
 import befaster.solutions.FIZ.FizzBuzzSolution;
 import befaster.solutions.HLO.HelloSolution;
@@ -73,3 +73,4 @@ class EntryPointMapping {
         return checkliteSolution.checklite(p.get(0).getAsString());
     }
 }
+

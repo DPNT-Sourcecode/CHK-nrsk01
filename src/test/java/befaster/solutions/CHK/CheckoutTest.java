@@ -1,5 +1,6 @@
 package befaster.solutions.CHK;
 
+import befaster.solutions.CHK.service.CheckoutSolution;
 import org.junit.Test;
 
 import static org.hamcrest.Matchers.equalTo;
@@ -14,4 +15,5 @@ public class CheckoutTest {
         assertThat(checkoutSolution.checkout("ABACAC"), equalTo(200));
     }
 }
+
 

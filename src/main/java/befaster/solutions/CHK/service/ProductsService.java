@@ -1,4 +1,6 @@
-package befaster.solutions.CHK;
+package befaster.solutions.CHK.service;
+
+import befaster.solutions.CHK.model.Product;
 
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
@@ -14,6 +16,7 @@ public class ProductsService {
         products.add(new Product("B", 30));
         products.add(new Product("C", 20));
         products.add(new Product("D", 15));
+        products.add(new Product("E", 40));
     }
 
     public Product getProductBySKU(char sku) {
@@ -25,3 +28,4 @@ public class ProductsService {
         return products;
     }
 }
+
